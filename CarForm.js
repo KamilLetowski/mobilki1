@@ -47,7 +47,7 @@ export default function CarForm({ navigation }) {
         placeholder="select date"
         format="YYYY-MM-DD"
         minDate="2019-05-01"
-        maxDate="2021-06-01"
+        maxDate={new Date()}
         confirmBtnText="Confirm"
         cancelBtnText="Cancel"
         customStyles={{
@@ -97,3 +97,6 @@ const styles = StyleSheet.create({
     display: 'flex'
   }
 });
+
+// baza do raportów spalania w 2 tech: sqllite i firebase na za 2 tygodnie
+// dane do baz: marka, model, typ paliwa, spalanie litrów na 100km, data, link do zdjęcia

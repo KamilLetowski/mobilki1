@@ -10,7 +10,7 @@ export default function FuelUsageResult({ route: { params } }) {
       <Text>Data tankowania: {params.carDetails.date}</Text>
       <Text>
         Spalanie na 100km:
-        {(params.carDetails.usedFuel / params.carDetails.distance) * 100}
+        {` ${(params.carDetails.usedFuel / params.carDetails.distance) * 100}`}
       </Text>
     </View>
   );
