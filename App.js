@@ -1,20 +1,27 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import FuelUsageResult from './FuelUsageResult';
 import CarForm from './CarForm';
+import RefuelingList from './RefuelingList';
+import Database from './Database';
 
-const Stack = createStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
+  useEffect(() => {
+    const db = new Database();
+    db.init();
+  }, []);
+
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={CarForm} />
-        <Stack.Screen name="FuelUsageResult" component={FuelUsageResult} />
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Formularz spalania" component={CarForm} />
+        <Tab.Screen name="Baza spalań" component={RefuelingList} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
